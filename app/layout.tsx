@@ -68,10 +68,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 1200,
+        width: 1200, // optional but recommended
         height: 630,
-        alt: "SUST EEE Student Portal",
-        type: "image/png",
+        alt: "EEE Department Portal",
       },
     ],
   },
@@ -113,8 +112,8 @@ const jsonLd = {
   "@type": "EducationalOrganization",
   name: "Department of Electrical and Electronic Engineering, SUST",
   alternateName: "SUST EEE",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://eee.sust.edu",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://eee.sust.edu"}/logo.png`,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
   description:
     "Official academic management portal for the Department of Electrical and Electronic Engineering (EEE), Shahjalal University of Science and Technology (SUST), Sylhet, Bangladesh.",
   address: {
