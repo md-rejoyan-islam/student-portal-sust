@@ -3,21 +3,22 @@ import { studentService } from "@/services";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Course Details | SUST EEE Portal",
+  title: "Course Details",
   description:
-    "View detailed course information, academic results, and attendance records on the SUST EEE Student Portal.",
+    "View detailed course information, academic results, attendance records, and instructor details on the SUST EEE Student Portal.",
   openGraph: {
-    title: "Course Details | SUST EEE Portal",
-    description: "View your course performance and attendance tracking.",
+    title: "Course Details | SUST EEE Student Portal",
+    description:
+      "View your course performance, grades, and attendance tracking at SUST EEE.",
     type: "website",
   },
   keywords: [
-    "SUST",
-    "EEE",
-    "course details",
-    "attendance",
+    "SUST EEE course details",
+    "course attendance",
     "academic results",
     "grades",
+    "course performance",
+    "EEE department courses",
   ],
 };
 

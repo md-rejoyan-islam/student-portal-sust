@@ -3,12 +3,25 @@ import { LoginForm } from "@/components/auth/login-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portal Login | SUST EEE",
+  title: "Login",
   description:
-    "Enter your registration number and security key to access the academic dashboard.",
+    "Sign in to the SUST EEE Student Portal with your registration number and password to access your academic dashboard, courses, and enrollment.",
   openGraph: {
-    title: "Portal Login | SUST EEE",
-    description: "Enter your credentials to access academic records.",
+    title: "Login | SUST EEE Student Portal",
+    description:
+      "Sign in to access your academic records, courses, and enrollment at SUST EEE.",
+    type: "website",
+    url: "/login",
+  },
+  keywords: [
+    "SUST EEE login",
+    "student portal login",
+    "SUST sign in",
+    "academic portal access",
+    "EEE student login",
+  ],
+  alternates: {
+    canonical: "/login",
   },
 };
 

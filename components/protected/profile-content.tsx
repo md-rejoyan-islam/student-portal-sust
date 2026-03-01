@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  changePasswordAction,
-  updateProfileAction,
-} from "@/app/actions/profile-actions";
+import { changePasswordAction, updateProfileAction } from "@/app/actions";
 import { ChangePasswordSchema, UpdateProfileSchema } from "@/schemas";
 import { StudentProfile } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -82,11 +79,7 @@ const PersonalInfo = ({
         value={student?.registration_number}
       />
       <InfoField label="Academic Session" value={student?.session} />
-      <InfoField
-        label="RFID Identifier"
-        value={student?.rfid}
-        isCode
-      />
+      <InfoField label="RFID Identifier" value={student?.rfid} isCode />
       <InfoField label="Institutional Email" value={student?.email} />
       <InfoField label="Contact Number" value={student?.phone_number} />
     </div>
@@ -474,7 +467,7 @@ export function ProfileContent({ student }: ProfileContentProps) {
           </div>
         </div>
       </header>
-    
+
       {/* Desktop: Two Column Layout */}
       <div className="hidden md:grid md:grid-cols-2 gap-5 lg:gap-6">
         {/* Personal Information Card */}

@@ -3,21 +3,26 @@ import { authService } from "@/services";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Student Profile | SUST EEE Portal",
+  title: "Student Profile",
   description:
-    "View and manage your student profile, personal information, and security settings for the SUST EEE academic portal.",
+    "View and manage your student profile, personal information, password, and account settings on the SUST EEE Student Portal.",
   openGraph: {
-    title: "Student Profile | SUST EEE Portal",
-    description: "Manage your academic profile and security settings.",
+    title: "Student Profile | SUST EEE Student Portal",
+    description:
+      "Manage your academic profile, personal details, and security settings at SUST EEE.",
     type: "website",
+    url: "/profile",
   },
   keywords: [
-    "SUST",
-    "EEE",
+    "SUST EEE profile",
     "student profile",
-    "academic portal",
     "account settings",
+    "change password",
+    "academic profile management",
   ],
+  alternates: {
+    canonical: "/profile",
+  },
 };
 
 export default async function ProfilePage() {

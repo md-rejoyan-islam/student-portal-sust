@@ -10,11 +10,6 @@ import {
 import { cache } from "react";
 import { api } from "./api";
 
-/**
- * Cached getMe — deduplicated per server-side request.
- * When layout.tsx and page.tsx both call authService.getMe() in the same
- * render, only ONE actual /me fetch goes to the backend.
- */
 const getCachedMe = cache(async (): Promise<StudentProfile> => {
   const response = await api<ApiResponse<StudentProfile>>("/me");
   return response.data as StudentProfile;

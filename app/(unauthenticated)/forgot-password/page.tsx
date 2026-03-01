@@ -1,14 +1,27 @@
-import { AuthCard } from '@/components/auth/auth-card';
-import { ForgotPasswordForm } from '@/components/auth/forgot-password-form';
-import { Metadata } from 'next';
+import { AuthCard } from "@/components/auth/auth-card";
+import { ForgotPasswordForm } from "@/components/auth/forgot-password-form";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Reset Access | SUST EEE',
-  description: 'Recover access to your academic portal account via your SUST email.',
+  title: "Forgot Password",
+  description:
+    "Recover access to your SUST EEE Student Portal account. Enter your registered email to receive a password reset link.",
   openGraph: {
-    title: 'Reset Access | SUST EEE',
-    description: 'Recover access to your academic portal account.',
-  }
+    title: "Forgot Password | SUST EEE Student Portal",
+    description:
+      "Recover access to your academic portal account via your SUST email.",
+    type: "website",
+    url: "/forgot-password",
+  },
+  keywords: [
+    "SUST EEE forgot password",
+    "reset password",
+    "account recovery",
+    "student portal recovery",
+  ],
+  alternates: {
+    canonical: "/forgot-password",
+  },
 };
 
 export default function ForgotPasswordPage() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { resetPasswordAction } from "@/app/actions/auth-actions";
+import { resetPasswordAction } from "@/app/actions";
 import { ResetPasswordSchema } from "@/schemas";
 import { VerifyResetTokenResponse } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,12 +15,16 @@ import { AuthButton } from "./auth-button";
 import { AuthInput } from "./auth-input";
 
 interface ResetPasswordFormProps {
-    token?: string;
-    verificationData?: VerifyResetTokenResponse | null;
-    isTokenInvalid?: boolean;
+  token?: string;
+  verificationData?: VerifyResetTokenResponse | null;
+  isTokenInvalid?: boolean;
 }
 
-export const ResetPasswordForm = ({ token, verificationData, isTokenInvalid }: ResetPasswordFormProps) => {
+export const ResetPasswordForm = ({
+  token,
+  verificationData,
+  isTokenInvalid,
+}: ResetPasswordFormProps) => {
   const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -49,16 +53,17 @@ export const ResetPasswordForm = ({ token, verificationData, isTokenInvalid }: R
       if (result.success) {
         setResetSuccess(true);
         toast.success("Password Reset Successful", {
-          description: result.message || "Your password has been reset successfully.",
+          description:
+            result.message || "Your password has been reset successfully.",
         });
 
         // Redirect to login after 3 seconds
         setTimeout(() => {
-            router.push("/login");
+          router.push("/login");
         }, 3000);
       } else {
         toast.error("Reset Failed", {
-             description: result.message || "Failed to reset password.",
+          description: result.message || "Failed to reset password.",
         });
       }
     } catch (err: any) {
@@ -66,7 +71,7 @@ export const ResetPasswordForm = ({ token, verificationData, isTokenInvalid }: R
         description: "An unexpected error occurred",
       });
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -147,7 +152,8 @@ export const ResetPasswordForm = ({ token, verificationData, isTokenInvalid }: R
       {verificationData?.name && (
         <div className="mb-6 text-center bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
           <p className="text-blue-800 text-sm">
-            Welcome back, <span className="font-semibold">{verificationData.name}</span>
+            Welcome back,{" "}
+            <span className="font-semibold">{verificationData.name}</span>
           </p>
           <p className="text-blue-600 text-xs mt-1">
             Create a new secure password for your account

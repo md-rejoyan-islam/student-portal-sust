@@ -1,6 +1,6 @@
 "use client";
 
-import { enrollInCourseAction } from "@/app/actions/enrollment-actions";
+import { enrollInCourseAction } from "@/app/actions";
 import { SingleEnrollmentData } from "@/types";
 import {
   ArrowLeft,

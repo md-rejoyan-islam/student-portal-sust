@@ -3,8 +3,12 @@ import { redirect } from "next/navigation";
 import { getCookie } from "../actions";
 
 export const metadata: Metadata = {
-  title: "Unauthenticated Layout | SUST EEE",
-  description: "Layout for unauthenticated users.",
+  title: {
+    default: "Authentication",
+    template: "%s | SUST EEE Student Portal",
+  },
+  description:
+    "Sign in to the SUST EEE Student Portal to access your academic dashboard, courses, and enrollment.",
 };
 
 export default async function UnauthenticatedLayout({

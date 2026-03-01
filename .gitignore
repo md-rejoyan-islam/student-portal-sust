@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 .claude
-
+SEO-GUIDE.md
 
 # testing
 /coverage

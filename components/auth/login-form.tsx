@@ -1,6 +1,6 @@
 "use client";
 
-import { loginAction } from "@/app/actions/auth-actions";
+import { loginAction } from "@/app/actions";
 import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Lock, User } from "lucide-react";
@@ -32,15 +32,17 @@ export const LoginForm = () => {
         registration_number: data.registrationNumber,
         password: data.password,
       });
-      
+
       if (result.success) {
         toast.success("Login Successful", {
-          description: result.message || "Welcome back! Redirecting to dashboard...",
+          description:
+            result.message || "Welcome back! Redirecting to dashboard...",
         });
         router.push("/");
       } else {
         toast.error("Login Failed", {
-          description: result.message || "Please check your credentials and try again.",
+          description:
+            result.message || "Please check your credentials and try again.",
         });
       }
     } catch (err: any) {

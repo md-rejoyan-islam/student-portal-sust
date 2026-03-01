@@ -5,8 +5,16 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Protected Layout | SUST EEE",
-  description: "Layout for authenticated student users.",
+  title: {
+    default: "Student Portal",
+    template: "%s | SUST EEE Student Portal",
+  },
+  description:
+    "Access your academic dashboard, courses, enrollment, and profile on the SUST EEE Student Portal.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function ProtectedLayout({

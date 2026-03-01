@@ -1,15 +1,27 @@
-import { AuthCard } from '@/components/auth/auth-card';
-import { ResetPasswordForm } from '@/components/auth/reset-password-form';
-import { authService } from '@/services';
-import { Metadata } from 'next';
+import { AuthCard } from "@/components/auth/auth-card";
+import { ResetPasswordForm } from "@/components/auth/reset-password-form";
+import { authService } from "@/services";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Finalize Reset | SUST EEE',
-  description: 'Set a new secure password for your account.',
+  title: "Reset Password",
+  description:
+    "Set a new secure password for your SUST EEE Student Portal account. Complete the password reset process.",
   openGraph: {
-    title: 'Finalize Reset | SUST EEE',
-    description: 'Secure your account with a new master password.',
-  }
+    title: "Reset Password | SUST EEE Student Portal",
+    description: "Secure your SUST EEE account with a new password.",
+    type: "website",
+    url: "/reset-password",
+  },
+  keywords: [
+    "SUST EEE reset password",
+    "new password",
+    "account security",
+    "student portal password",
+  ],
+  alternates: {
+    canonical: "/reset-password",
+  },
 };
 
 interface PageProps {
@@ -17,17 +29,17 @@ interface PageProps {
 }
 
 export default async function ResetPasswordPage({ searchParams }: PageProps) {
-    const params = await searchParams;
-    const token = params.token as string | undefined;
+  const params = await searchParams;
+  const token = params.token as string | undefined;
 
-    let verificationData = null;
-    let isTokenInvalid = false;
+  let verificationData = null;
+  let isTokenInvalid = false;
 
   if (token) {
     try {
-        verificationData = await authService.verifyResetToken(token);
+      verificationData = await authService.verifyResetToken(token);
     } catch {
-        isTokenInvalid = true;
+      isTokenInvalid = true;
     }
   }
 
@@ -36,7 +48,7 @@ export default async function ResetPasswordPage({ searchParams }: PageProps) {
       title="Finalize Reset"
       subtitle="Secure your account with a new master password."
     >
-      <ResetPasswordForm 
+      <ResetPasswordForm
         token={token}
         verificationData={verificationData}
         isTokenInvalid={isTokenInvalid}

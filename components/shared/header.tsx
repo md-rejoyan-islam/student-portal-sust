@@ -1,19 +1,19 @@
 "use client";
 
-import { logoutAction } from "@/app/actions/auth-actions";
+import { logoutAction } from "@/app/actions";
 import logo from "@/public/logo.png";
 import { StudentProfile } from "@/types";
 import {
-    Bell,
-    BookOpen,
-    ChevronDown,
-    GraduationCap,
-    LayoutDashboard,
-    LogOut,
-    Mail,
-    Menu,
-    User,
-    X,
+  Bell,
+  BookOpen,
+  ChevronDown,
+  GraduationCap,
+  LayoutDashboard,
+  LogOut,
+  Mail,
+  Menu,
+  User,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 interface HeaderProps {
-    user: StudentProfile;
+  user: StudentProfile;
 }
 
 export const Header = ({ user }: HeaderProps) => {

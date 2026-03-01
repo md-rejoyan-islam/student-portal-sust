@@ -1,6 +1,6 @@
 "use client";
 
-import { forgotPasswordAction } from "@/app/actions/auth-actions";
+import { forgotPasswordAction } from "@/app/actions";
 import { ForgotPasswordSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail } from "lucide-react";
@@ -12,7 +12,7 @@ import { AuthButton } from "./auth-button";
 import { AuthInput } from "./auth-input";
 
 export const ForgotPasswordForm = () => {
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
 
   const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
@@ -38,15 +38,15 @@ export const ForgotPasswordForm = () => {
         });
       } else {
         toast.error("Request Failed", {
-            description: result.message || "Failed to send reset email.",
-       });
+          description: result.message || "Failed to send reset email.",
+        });
       }
     } catch (err: any) {
       toast.error("Request Failed", {
         description: "An unexpected error occurred.",
       });
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
