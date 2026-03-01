@@ -11,7 +11,6 @@ import {
 } from "@/types";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 // ─── Cookie Helpers ──────────────────────────────────────────────────────────
 
@@ -22,7 +21,7 @@ export async function setCookie(name: string, value: string) {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    path: "/",
+    path: "/students", // Ensure this matches your basePath
   });
 }
 
@@ -42,8 +41,14 @@ export async function setAuthCookies(
 
 export async function removeAuthCookies() {
   const cookieStore = await cookies();
-  cookieStore.delete("accessToken");
-  cookieStore.delete("refreshToken");
+  cookieStore.delete({
+    name: "accessToken",
+    path: "/students",
+  });
+  cookieStore.delete({
+    name: "refreshToken",
+    path: "/students",
+  });
 }
 
 export async function getAccessToken() {
@@ -83,13 +88,13 @@ export async function logoutAction() {
   try {
     // Optional: Call backend logout endpoint if needed
     // await authService.logout();
+    // Clear cookies
+    await removeAuthCookies();
+
+    // redirect("/login");
   } catch (error) {
     console.error("Logout failed", error);
   }
-  // Clear cookies
-  await removeAuthCookies();
-
-  redirect("/login");
 }
 
 export async function forgotPasswordAction(data: ForgotPasswordRequest) {

@@ -45,7 +45,7 @@ export const LoginForm = () => {
             result.message || "Please check your credentials and try again.",
         });
       }
-    } catch (err: any) {
+    } catch {
       toast.error("Login Failed", {
         description: "An unexpected error occurred.",
       });
